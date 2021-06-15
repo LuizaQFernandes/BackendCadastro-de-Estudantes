@@ -1,5 +1,9 @@
 package com.cadastroestudantes.repository;
 
-public class StudentRepository {
+import com.cadastroestudantes.entities.Student;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface StudentRepository extends JpaRepository<Student, Long> {
     
 }
