@@ -44,6 +44,7 @@ public class StudentController {
 
     @PostMapping
     public Student salvar(@RequestBody Student student){
+        System.out.println(student);
         student = repo.save(student);
         return student;
     }
@@ -53,6 +54,11 @@ public class StudentController {
         Optional<Student> op = repo.findById(id);
         Student student = op.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         student.setName(updateStudent.getName());
+        student.setRa(updateStudent.getRa());
+        student.setAge(updateStudent.getAge());
+        student.setSala(updateStudent.getSala());
+        student.setParent(updateStudent.getParent());
+
         repo.save(student);
         return student;
     }
